@@ -7,7 +7,8 @@ In order to upgrade to immediate next version, taking the backup of etcd.
   
   Taking a Snapshot of etcd
   
-  ```docker run --rm -v $(pwd)/backup:/backup \
+  ```
+  docker run --rm -v $(pwd)/backup:/backup \
     --network host \
     -v /etc/kubernetes/pki/etcd:/etc/kubernetes/pki/etcd \
     --env ETCDCTL_API=3 \
@@ -36,7 +37,8 @@ The below command is optional and only relevant if you use a configuration file 
   it should look like 1.21.x-0, where x is the latest patch
   
   
-  ``` yum list --showduplicates kubeadm --disableexcludes=kubernetes
-      #find the version in the list
-      #it should look like 1.21.x-0, where x is the latest patch
+  ``` 
+  yum list --showduplicates kubeadm --disableexcludes=kubernetes
+  #find the version in the list
+  #it should look like 1.21.x-0, where x is the latest patch
   ```
