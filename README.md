@@ -1,5 +1,5 @@
 
-<h1> Kubernates upgrade from 18.x to 19.x on CentOs-7 <h1>
+#Kubernates upgrade from 18.x to 19.x on CentOs-7
   
 In order to upgrade to immediate next version, taking the backup of etcd.
   
