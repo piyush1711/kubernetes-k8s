@@ -70,3 +70,23 @@ Drain the node :
   # replace <node-to-drain> with the name of your node you are draining
     kubectl drain <node-to-drain> --ignore-daemonsets
   ```
+Upgrade kubelet and kubectl
+```
+ # replace x in 1.21.x-0 with the latest patch version
+   yum install -y kubelet-1.21.x-0 kubectl-1.21.x-0 --disableexcludes=kubernetes
+ ```
+  
+Restarting Kubelet:
+```
+ sudo systemctl daemon-reload
+ sudo systemctl restart kubelet
+```  
+  
+Uncordon the node
+
+Bring the node back online by marking it schedulable:
+```
+# replace <node-to-drain> with the name of your node
+kubectl uncordon <node-to-drain>
+```
+
