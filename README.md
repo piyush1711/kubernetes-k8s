@@ -31,11 +31,13 @@ The below command is optional and only relevant if you use a configuration file 
  
   On Master:
   Determine which version to upgrade to 
-  # find the version in the list
-  # it should look like 1.21.x-0, where x is the latest patch
+  find the version in the list
+  it should look like 1.21.x-0, where x is the latest patch
   
   
-  ```yum list --showduplicates kubeadm --disableexcludes=kubernetes ```
+  ```yum list --showduplicates kubeadm --disableexcludes=kubernetes
+  #find the version in the list
+  #it should look like 1.21.x-0, where x is the latest patch```
 
   
   
