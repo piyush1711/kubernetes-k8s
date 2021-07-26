@@ -55,3 +55,18 @@ The below command is optional and only relevant if you use a configuration file 
   # replace x in 1.19.x-0 with the latest patch version
    yum install -y kubeadm-1.19.x-0 --disableexcludes=kubernetes
   ```
+   Verify the upgrade plan:
+  ```
+  kubeadm upgrade plan
+  ```
+  For applying the installed version 
+  ```
+  # replace x with the patch version you picked for this upgrade
+  sudo kubeadm upgrade apply v1.19.x
+  ```
+Drain the node :
+  
+  ```
+  # replace <node-to-drain> with the name of your node you are draining
+    kubectl drain <node-to-drain> --ignore-daemonsets
+  ```
