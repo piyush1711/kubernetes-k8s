@@ -31,14 +31,27 @@ The below command is optional and only relevant if you use a configuration file 
   3.Make sure to back up any important components, such as app-level state stored in a database. kubeadm upgrade does not touch your workloads, only components       internal to Kubernetes, but backups are always a best practice.
   4.Swap must be disabled.
  
-  On Master:
+  <h4> On Master: </h4>
   Determine which version to upgrade to 
   find the version in the list
-  it should look like 1.21.x-0, where x is the latest patch
+  it should look like 1.19.x-0, where x is the latest patch
   
   
   ``` 
   yum list --showduplicates kubeadm --disableexcludes=kubernetes
   #find the version in the list
-  #it should look like 1.21.x-0, where x is the latest patch
+  #it should look like 1.19.x-0, where x is the latest patch
+  ```
+
+  Call "kubeadm upgrade"
+
+  For the first control plane node
+
+  Upgrade kubeadm:
+
+  
+  
+  ```
+  # replace x in 1.19.x-0 with the latest patch version
+   yum install -y kubeadm-1.19.x-0 --disableexcludes=kubernetes
   ```
