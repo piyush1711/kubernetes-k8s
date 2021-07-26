@@ -7,7 +7,7 @@ In order to upgrade to immediate next version, taking the backup of etcd.
   
   Taking a Snapshot of etcd
   
-  ```docker run --rm -v $(pwd)/backup:/backup \
+  `docker run --rm -v $(pwd)/backup:/backup \
     --network host \
     -v /etc/kubernetes/pki/etcd:/etc/kubernetes/pki/etcd \
     --env ETCDCTL_API=3 \
@@ -16,7 +16,7 @@ In order to upgrade to immediate next version, taking the backup of etcd.
     --cacert=/etc/kubernetes/pki/etcd/ca.crt \
     --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt \
     --key=/etc/kubernetes/pki/etcd/healthcheck-client.key \
-    snapshot save /backup/etcd-snapshot-latest.db ``` 
+    snapshot save /backup/etcd-snapshot-latest.db ` 
  
 The below command is optional and only relevant if you use a configuration file for kubeadm. Storing this file makes it easy to initialize the master with the exact same configuration as before when restoring it.
   # Backup kubeadm-config
@@ -35,7 +35,7 @@ The below command is optional and only relevant if you use a configuration file 
   # it should look like 1.21.x-0, where x is the latest patch
   
   
-  yum list --showduplicates kubeadm --disableexcludes=kubernetes
+  ```yum list --showduplicates kubeadm --disableexcludes=kubernetes ```
 
   
   
