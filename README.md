@@ -89,7 +89,7 @@ Bring the node back online by marking it schedulable:
 # replace <node-to-drain> with the name of your node
 kubectl uncordon <node-to-drain>
 ```
-Upgrade worker nodes:
+  <h4> On Worker Nodes: </h4>
 ```
 # replace x in 1.19.x-0 with the latest patch version
 yum install -y kubeadm-1.19.x-0 --disableexcludes=kubernetes
