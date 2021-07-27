@@ -72,8 +72,8 @@ Drain the node :
   ```
 Upgrade kubelet and kubectl
 ```
- # replace x in 1.21.x-0 with the latest patch version
-   yum install -y kubelet-1.21.x-0 kubectl-1.21.x-0 --disableexcludes=kubernetes
+ # replace x in 1.19.x-0 with the latest patch version
+   yum install -y kubelet-1.19.x-0 kubectl-1.19.x-0 --disableexcludes=kubernetes
  ```
   
 Restarting Kubelet:
@@ -89,4 +89,35 @@ Bring the node back online by marking it schedulable:
 # replace <node-to-drain> with the name of your node
 kubectl uncordon <node-to-drain>
 ```
+Upgrade worker nodes:
+```
+# replace x in 1.19.x-0 with the latest patch version
+yum install -y kubeadm-1.19.x-0 --disableexcludes=kubernetes
+```
+After installation Kubeadm need to be upgraded:
+ ```
+  sudo kubeadm upgrade node
+ ```
+Drain the node: 
+  ```
+  # replace <node-to-drain> with the name of your node you are draining
+  kubectl drain <node-to-drain> --ignore-daemonsets
+  ```
+  
+Now Upgrade Kubectl and kubelet:
+ ```
+  # replace x in 1.19.x-0 with the latest patch version
+  yum install -y kubelet-1.19.x-0 kubectl-1.19.x-0 --disableexcludes=kubernetes
+  ```
+  Reload and Restart   
+   ```
+    sudo systemctl daemon-reload
+    sudo systemctl restart kubelet
+  ```
+  
+Uncordon the node: Bring the node back online by marking it schedulable.
+  ```
+    # replace <node-to-drain> with the name of your node
+      kubectl uncordon <node-to-drain>
+  ```
 
